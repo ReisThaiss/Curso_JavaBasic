@@ -1,23 +1,44 @@
+package one.digitalinnovation.gof.model;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Cliente {
-    private String nome;
 
-    // Construtor
-    public Cliente() {
-        this.nome = nome;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String nome;
+	@ManyToOne
+	private Endereco endereco;
 
-    Cliente() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public Cliente() {
-        //TODO Auto-generated constructor stub
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    // Método getter para o nome
-    public String getNome() {
-        return nome;
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    // Outros métodos e atributos conforme necessário
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 }
+    
+
